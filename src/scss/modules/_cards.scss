@@ -1,81 +1,74 @@
 .cards {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    -ms-box-orient: horizontal;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-
-    li {
-        -webkit-transition: all 0.5s;
-        transition: all 0.5;
-
-        background-color: #fff;
-        height: 250px;
-        margin: 10px 20px 10px 0;
-        position: relative;
-        overflow: hidden;
-        width: 310px;
-
-        figure {
-            text-align: center;
-        }
-
-        p.description {
-            color: #000;
-            font: 12px "Open Sans";
-        }
-
-        &.selected:before {
-            content: "Selected";
-            text-align: center;
-            position: absolute;
-            height: 35px;
-            background-color: #23bf91;
-            color: #fff;
-            width: 150px;
-            -webkit-transform: rotate(36deg);
-            transform: rotate(36deg);
-            right: -25px;
-            top: 13px;
-            line-height: 30px;
-            font-family: "Open Sans";
-            line-height: 35px;
-            text-indent: 10px;
-            font-size: 12px;
-        }
-
-        &.recommended:before {
-                content: "Recommended";
-                text-align: center;
-                position: absolute;
-                height: 35px;
-                background-color: #192923;
-                color: #fff;
-                width: 150px;
-                -webkit-transform: rotate(36deg);
-                transform: rotate(36deg);
-                right: -25px;
-                top: 13px;
-                line-height: 30px;
-                font-family: "Open Sans";
-                line-height: 35px;
-                text-indent: 10px;
-                font-size: 12px;
-        }
-
-        &:hover,
-        &.active {
-            -webkit-transition: all 0.5s;
-            transition: all 0.5s;
-
-            box-shadow: 1px 1px 6px 2px #808080;
-        }
+  padding: 50px;
+  margin: 0;
+  list-style: none;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  li {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5;
+    background-color: #fff;
+    height: 250px;
+    margin: 10px 20px 10px 0;
+    position: relative;
+    overflow: hidden;
+    width: 310px;
+    figure {
+      text-align: center;
     }
+    p.description {
+      color: #000;
+      font: 12px "Roboto, Open Sans";
+      text-align: center;
+    }
+    &.selected:before {
+      content: "Selected";
+      text-align: center;
+      position: absolute;
+      height: 35px;
+      background-color: #23bf91;
+      color: #fff;
+      width: 150px;
+      -webkit-transform: rotate(36deg);
+      transform: rotate(36deg);
+      right: -25px;
+      top: 13px;
+      line-height: 30px;
+      font-family: "Open Sans";
+      line-height: 35px;
+      text-indent: 10px;
+      font-size: 12px;
+    }
+    &.recommended:before {
+      content: "Recommended";
+      text-align: center;
+      position: absolute;
+      height: 35px;
+      background-color: #192923;
+      color: #fff;
+      width: 150px;
+      -webkit-transform: rotate(36deg);
+      transform: rotate(36deg);
+      right: -25px;
+      top: 13px;
+      line-height: 30px;
+      font-family: "Open Sans";
+      line-height: 35px;
+      text-indent: 10px;
+      font-size: 12px;
+    }
+    &:hover,
+    &.active {
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+      box-shadow: 1px 1px 6px 2px #808080;
+    }
+  }
 }
