@@ -1,3 +1,36 @@
 .portfolio {
-
+  border-left: 1px solid #23bf91;
+  flex: 1;
+  .summary {
+    background-color: #fff;
+    position: fixed;
+    height: 100%;
+    width: 45%;
+    footer {
+      .add {
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+        background-color: #fff;
+        border: 1px solid #23bf91;
+        border-radius: 3px;
+        margin-bottom: 20px;
+        margin-left: 30px;
+        cursor: pointer;
+        color: #23bf91;
+        text-align: center;
+        font: 20px "Sans Serif";
+        font-weight: 100;
+        position: absolute;
+        padding: 10px 0;
+        width: 92%;
+        bottom: 10px;
+        &:hover {
+          -webkit-transition: all 0.5s;
+          transition: all 0.5s;
+          background-color: #23bf91;
+          color: #fff;
+        }
+      }
+    }
+  }
 }
