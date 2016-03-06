@@ -83,12 +83,9 @@ section.main {
     flex: 1; }
     .organisations .selected-wrapper .selected {
       background-color: #fff;
-      margin: 10px 50px 0 0;
       position: fixed;
-      margin-left: 30px;
-      padding: 20px;
-      height: 70%;
-      width: 35%; }
+      height: 100%;
+      width: 41%; }
       .organisations .selected-wrapper .selected footer .add {
         -webkit-transition: all 0.5s;
         transition: all 0.5s;
@@ -96,6 +93,7 @@ section.main {
         border: 1px solid #23bf91;
         border-radius: 3px;
         bottom: 0;
+        margin-left: 30px;
         cursor: pointer;
         color: #23bf91;
         text-align: center;
