@@ -1,30 +1,15 @@
-global.mongoUser = "fredrik"
-global.mongoPass = "the-mobility-of-obfuscation-is-sociological-in-its-objectivity"
-
-console.log("NODE_ENV", process.env.NODE_ENV)
-if (process.env.NODE_ENV === 'production') {
-    global.mongoURI = "ds039422-a0.mongolab.com:39422/creddon"
-    global.fbAppId = "1594855824087105"
-} else if (process.env.NODE_ENV === 'development') {
-    global.mongoURI = "ds061671.mongolab.com:61671/cswdb_preproduction"
-    global.fbAppId = "1654170501488970"
-} else {
-    console.log('NODE_ENV error');
-    return;
-}
 
 try {
 
     //Original dependencies, before the hackathonstarterdemo
     var express = require("express"),
-        //cookieParser should be above session
-        cookieParser = require('cookie-parser'),
-        compression = require("compression"),
-        //bodyParser should be above methodOverride
-        bodyParser = require("body-parser"),
-        logger = require('morgan'),
+        // //cookieParser should be above session
+        // cookieParser = require('cookie-parser'),
+        // compression = require("compression"),
+        // //bodyParser should be above methodOverride
+        // bodyParser = require("body-parser"),
+        // logger = require('morgan'),
 
-        path = require('path'),
 
 
     /**
@@ -63,10 +48,10 @@ try {
 
     var pubDir = __dirname + "/public/"
 
-    app.use('/js/', express.static(pubDir + '/js'))
-    app.use('/css/', express.static(pubDir + '/css'))
-    app.use('/templates/', express.static(pubDir + '/templates'))
-    app.use('/img/', express.static(pubDir + '/img'))
+    app.use('assets/js/', express.static(pubDir + '/js'))
+    app.use('assets/css/', express.static(pubDir + '/css'))
+    app.use('views/', express.static(pubDir + '/views'))
+    app.use('assets/images/', express.static(pubDir + '/images'))
 
     app.listen(process.env.PORT || 5000)
 
