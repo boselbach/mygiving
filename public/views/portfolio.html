@@ -2,9 +2,10 @@
     <ul class="cards">
         <li ng-repeat="organisation in portfolio" ng-if="organisation.selected === true">
             <figure>
-                <img ng-src="assets/images/icons/{{organisation.image}}" alt="">
+                <img ng-src="assets/images/icons/{{organisation.header_image}}" alt="">
             </figure>
             <p class="description">{{organisation.description}}</p>
+            <input type="number" min="0" step="10" placeholder="Input amount">$
         </li>
     </ul>
 </section>

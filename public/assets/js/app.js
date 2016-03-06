@@ -5,7 +5,7 @@
         'ngRoute',
         'mygiving.controller.navigation',
         'mygiving.controller.index',
-        'mygiving.controller.survey',
+        'mygiving.controller.questionaire',
         'mygiving.controller.organisation',
         'mygiving.controller.portfolio'
     ])
@@ -21,10 +21,10 @@
             controller: 'IndexCtrl',
             activeTab: 'home'
           })
-          .when('/survey', {
-            templateUrl: 'views/survey.html',
-            controller: 'SurveyCtrl',
-            activeTab: 'survey'
+          .when('/questionaire', {
+            templateUrl: 'views/questionaire.html',
+            controller: 'QuestionaireCtrl',
+            activeTab: 'questionaire'
           })
           .when('/organisations', {
             templateUrl: 'views/organisations.html',
@@ -53,6 +53,52 @@
     .filter('slugify', [function() {
         return function(text) {
             return text.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-');
+        };
+    }]);
+})();
+
+(function() {
+    'use strict';
+
+    angular.module('mygiving.services.matching', [])
+    .factory('MatchingService', ['$http', '$q', function($http, $q) {
+
+        var getAll = function() {
+            var defer = $q.defer();
+
+            $http.get('questionaire.json?callback=JSON_CALLBACK')
+            .success(function(response) {
+                defer.resolve(response);
+            });
+
+            return defer.promise;
+        };
+
+        // call with an array of available charities
+        function getRecommendations(surveyResponse, charities) {
+          var matchingScores = [];
+          var maxScore = 0;
+          var recommendedCharities = [];
+          var index;
+          for (index = 0; index < charities.length; index++) {
+            var charity = charities[index];
+            var score = _getMatchingScore(surveyResponse, charity);
+            matchingScores[index] = score;
+            if (score > maxScore) {
+              maxScore = score;
+              // overwrite previous recommendation, if any
+              recommendedCharities = [charity.id];
+            } else if (score === maxScore) {
+              recommendedCharities.push(charity.id);
+            }
+          }
+
+          return recommendedCharities;
+        }
+
+        return {
+            getAll: getAll,
+            getRecommendations: getRecommendations
         };
     }]);
 })();
@@ -118,21 +164,20 @@
 (function() {
     'use strict';
 
-    angular.module('mygiving.controller.navigation', [])
-    .controller('NavigationCtrl', ['$scope', '$route', function($scope, $route) {
-        $scope.route = $route;
-
-        console.log($route.$scope);
-        $scope.menu = ['home', 'survey', 'organisations', 'portfolio'];
+    angular.module('mygiving.controller.index', [])
+    .controller('IndexCtrl', ['$scope', function($scope) {
+        
     }]);
 })();
 
 (function() {
     'use strict';
 
-    angular.module('mygiving.controller.index', [])
-    .controller('IndexCtrl', ['$scope', function($scope) {
-        
+    angular.module('mygiving.controller.navigation', [])
+    .controller('NavigationCtrl', ['$scope', '$route', function($scope, $route) {
+        $scope.route = $route;
+
+        $scope.menu = ['home', 'questionaire', 'organisations', 'portfolio'];
     }]);
 })();
 
@@ -181,21 +226,50 @@
 (function() {
     'use strict';
 
-    angular.module('mygiving.controller.survey', [
-        'mygiving.resources.survey'
+    angular.module('mygiving.controller.questionaire', [
+        'mygiving.services.matching',
+        'mygiving.questionaire.choice'
     ])
-    .controller('SurveyCtrl', ['$scope', function($scope) {
+    .controller('QuestionaireCtrl', ['$scope', 'MatchingService', function($scope, MatchingService) {
+        MatchingService.getAll()
+        .then(function(data) {
+            $scope.questions = data;
+        });
 
+        $scope.next = function() {
+            console.log(angular.element('.choices li input'));
+            angular.forEach(angular.element('.choices li input:checked'), function(item) {
+                console.log(angular.element(item).attr('value'));
+            });
+
+            // console.log(checkedValues);
+        };
+        // $scope.$watch(function(){
+        //     return angular.element('.choices:not(:has(:radio:checked))').length;
+        // }, function(newValue, oldValue) {
+        //     console.log(newValue);
+        // });
     }]);
 })();
 
 (function() {
     'use strict';
 
-    angular.module('mygiving.resources.survey', [])
-    .factory('SurveyService'[function() {
+    angular.module('mygiving.questionaire.choice', [])
+    .directive('choice', [function() {
         return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                element.on('click', function() {
+                    element.closest('.choices').find('li').removeClass('active');
+                    element.find('input').prop("checked", true);
+                    element.addClass('active');
 
+                    if (!angular.element('.choices:not(:has(:radio:checked))').length) {
+                        scope.next();
+                    }
+                });
+            }
         };
     }]);
 })();

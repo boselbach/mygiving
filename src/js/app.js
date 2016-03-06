@@ -5,7 +5,7 @@
         'ngRoute',
         'mygiving.controller.navigation',
         'mygiving.controller.index',
-        'mygiving.controller.survey',
+        'mygiving.controller.questionaire',
         'mygiving.controller.organisation',
         'mygiving.controller.portfolio'
     ])
@@ -21,10 +21,10 @@
             controller: 'IndexCtrl',
             activeTab: 'home'
           })
-          .when('/survey', {
-            templateUrl: 'views/survey.html',
-            controller: 'SurveyCtrl',
-            activeTab: 'survey'
+          .when('/questionaire', {
+            templateUrl: 'views/questionaire.html',
+            controller: 'QuestionaireCtrl',
+            activeTab: 'questionaire'
           })
           .when('/organisations', {
             templateUrl: 'views/organisations.html',

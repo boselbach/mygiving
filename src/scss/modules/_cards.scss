@@ -30,6 +30,8 @@
         p.description {
             color: #000;
             font: 12px "Open Sans";
+            text-align: center;
+            padding: 10px;
         }
 
         &.selected:before {

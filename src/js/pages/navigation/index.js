@@ -5,7 +5,6 @@
     .controller('NavigationCtrl', ['$scope', '$route', function($scope, $route) {
         $scope.route = $route;
 
-        console.log($route.$scope);
-        $scope.menu = ['home', 'survey', 'organisations', 'portfolio'];
+        $scope.menu = ['home', 'questionaire', 'organisations', 'portfolio'];
     }]);
 })();

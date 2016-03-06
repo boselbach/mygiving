@@ -71,7 +71,8 @@ section.main {
   section.main article.main {
     background-color: #ebebeb;
     padding: 20px 0 20px 20px;
-    width: 100%; }
+    width: 100%;
+    height: 100%; }
 
 .organisations {
   display: flex; }
@@ -110,6 +111,58 @@ section.main {
           background-color: #23bf91;
           color: #fff; }
 
+.questionaire header {
+  text-align: center;
+  margin-bottom: 20px; }
+  .questionaire header h1 {
+    color: #23bf91;
+    font: 26px "Open Sans";
+    margin-bottom: 40px; }
+  .questionaire header p {
+    max-width: 500px;
+    margin: 0 auto;
+    font: 13px "Open Sans"; }
+
+.questionaire ul.questions {
+  text-align: center;
+  display: flex;
+  flex-direction: column; }
+  .questionaire ul.questions li.question {
+    display: inline-block; }
+    .questionaire ul.questions li.question h2 {
+      color: #23bf91;
+      font: 22px "Open Sans";
+      margin-bottom: 20px; }
+    .questionaire ul.questions li.question ul.choices {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px; }
+      .questionaire ul.questions li.question ul.choices li {
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+        border: 2px solid #23bf91;
+        border-radius: 3px;
+        color: #23bf91;
+        cursor: pointer;
+        margin-right: 40px;
+        flex: 0 0 150px;
+        height: 150px;
+        font: 16px "Open Sans";
+        color: #23bf91;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center; }
+        .questionaire ul.questions li.question ul.choices li.active {
+          -webkit-transition: all 0.5s;
+          transition: all 0.5s;
+          background-color: #23bf91;
+          color: #fff; }
+        .questionaire ul.questions li.question ul.choices li input {
+          display: none; }
+
 .cards {
   padding: 0;
   margin: 0;
@@ -136,7 +189,9 @@ section.main {
       text-align: center; }
     .cards li p.description {
       color: #000;
-      font: 12px "Open Sans"; }
+      font: 12px "Open Sans";
+      text-align: center;
+      padding: 10px; }
     .cards li.selected:before {
       content: "Selected";
       text-align: center;
