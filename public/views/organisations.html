@@ -1,6 +1,6 @@
 <section class="organisations">
     <ul class="cards">
-        <li ng-class="{'selected': organisation.selected === true}" ng-repeat="organisation in organisations" ng-click="setActice($index)" index="{{$index}}" card>
+        <li ng-class="{'selected': organisation.selected === true, 'recommended': organisation.recommended === true}" ng-repeat="organisation in organisations | orderBy:'organisation.recommended'" ng-click="setActice($index)" index="{{$index}}" card>
             <figure>
                 <img ng-src="assets/images/icons/{{organisation.logo}}" alt="">
             </figure>

@@ -3,26 +3,31 @@
 
     angular.module('mygiving.controller.questionaire', [
         'mygiving.services.matching',
+        'mygiving.services.organisations',
         'mygiving.questionaire.choice'
     ])
-    .controller('QuestionaireCtrl', ['$scope', 'MatchingService', function($scope, MatchingService) {
+    .controller('QuestionaireCtrl', ['$scope', 'MatchingService', 'OrganisationsService', function($scope, MatchingService, OrganisationsService) {
         MatchingService.getAll()
         .then(function(data) {
             $scope.questions = data;
         });
 
         $scope.next = function() {
-            console.log(angular.element('.choices li input'));
-            angular.forEach(angular.element('.choices li input:checked'), function(item) {
-                console.log(angular.element(item).attr('value'));
-            });
+            OrganisationsService.getAll()
+            .then(function(organisations) {
+                var choices = {};
 
-            // console.log(checkedValues);
+                var checkboxes = angular.element('.choices li input:checked');
+                for (var i = 0; i < checkboxes.length; i++) {
+                    var choice = angular.element(checkboxes[i]);
+
+                    choices[choice.attr('name')] = choice.attr('value');
+                }
+
+                angular.forEach(MatchingService.getRecommendations(choices, organisations), function(index) {
+                    OrganisationsService.recommended(index, true);
+                });
+            });
         };
-        // $scope.$watch(function(){
-        //     return angular.element('.choices:not(:has(:radio:checked))').length;
-        // }, function(newValue, oldValue) {
-        //     console.log(newValue);
-        // });
     }]);
 })();

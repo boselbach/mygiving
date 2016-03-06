@@ -63,6 +63,21 @@
     angular.module('mygiving.services.matching', [])
     .factory('MatchingService', ['$http', '$q', function($http, $q) {
 
+        function _getMatchingScore(surveyResponse, charity) {
+          var score = 0;
+          var surveyQuestions = Object.keys(surveyResponse);
+          var index;
+          for (index = 0; index < surveyQuestions.length; index++) {
+            var question = surveyQuestions[index];
+            var preference = surveyResponse[question];
+            var comparison = charity[question];
+            if ((preference < 0.5 && comparison < 0.5) ||
+                (preference > 0.5 && comparison > 0.5)) score++;
+          }
+
+          return score;
+        }
+
         var getAll = function() {
             var defer = $q.defer();
 
@@ -114,6 +129,10 @@
             organisations[index].selected = state;
         };
 
+        var recommended = function(index, state) {
+            organisations[index].recommended = state;
+        };
+
         var getAll = function() {
             var defer = $q.defer();
 
@@ -136,7 +155,8 @@
 
         return {
             getAll: getAll,
-            update: update
+            update: update,
+            recommended: recommended
         };
     }]);
 })();
@@ -184,6 +204,20 @@
 (function() {
     'use strict';
 
+    angular.module('mygiving.controller.portfolio', [
+        'mygiving.services.organisations'
+    ])
+    .controller('PortfolioCtrl', ['$scope', 'OrganisationsService', function($scope, OrganisationsService) {
+        OrganisationsService.getAll()
+        .then(function(data) {
+            $scope.portfolio = data;
+        });
+    }]);
+})();
+
+(function() {
+    'use strict';
+
     angular.module('mygiving.controller.organisation', [
         'mygiving.services.organisations',
         'mygiving.directive.card'
@@ -212,43 +246,34 @@
 (function() {
     'use strict';
 
-    angular.module('mygiving.controller.portfolio', [
-        'mygiving.services.organisations'
-    ])
-    .controller('PortfolioCtrl', ['$scope', 'OrganisationsService', function($scope, OrganisationsService) {
-        OrganisationsService.getAll()
-        .then(function(data) {
-            $scope.portfolio = data;
-        });
-    }]);
-})();
-
-(function() {
-    'use strict';
-
     angular.module('mygiving.controller.questionaire', [
         'mygiving.services.matching',
+        'mygiving.services.organisations',
         'mygiving.questionaire.choice'
     ])
-    .controller('QuestionaireCtrl', ['$scope', 'MatchingService', function($scope, MatchingService) {
+    .controller('QuestionaireCtrl', ['$scope', 'MatchingService', 'OrganisationsService', function($scope, MatchingService, OrganisationsService) {
         MatchingService.getAll()
         .then(function(data) {
             $scope.questions = data;
         });
 
         $scope.next = function() {
-            console.log(angular.element('.choices li input'));
-            angular.forEach(angular.element('.choices li input:checked'), function(item) {
-                console.log(angular.element(item).attr('value'));
-            });
+            OrganisationsService.getAll()
+            .then(function(organisations) {
+                var choices = {};
 
-            // console.log(checkedValues);
+                var checkboxes = angular.element('.choices li input:checked');
+                for (var i = 0; i < checkboxes.length; i++) {
+                    var choice = angular.element(checkboxes[i]);
+
+                    choices[choice.attr('name')] = choice.attr('value');
+                }
+
+                angular.forEach(MatchingService.getRecommendations(choices, organisations), function(index) {
+                    OrganisationsService.recommended(index, true);
+                });
+            });
         };
-        // $scope.$watch(function(){
-        //     return angular.element('.choices:not(:has(:radio:checked))').length;
-        // }, function(newValue, oldValue) {
-        //     console.log(newValue);
-        // });
     }]);
 })();
 

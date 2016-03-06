@@ -9,6 +9,10 @@
             organisations[index].selected = state;
         };
 
+        var recommended = function(index, state) {
+            organisations[index].recommended = state;
+        };
+
         var getAll = function() {
             var defer = $q.defer();
 
@@ -31,7 +35,8 @@
 
         return {
             getAll: getAll,
-            update: update
+            update: update,
+            recommended: recommended
         };
     }]);
 })();

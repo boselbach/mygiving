@@ -4,6 +4,21 @@
     angular.module('mygiving.services.matching', [])
     .factory('MatchingService', ['$http', '$q', function($http, $q) {
 
+        function _getMatchingScore(surveyResponse, charity) {
+          var score = 0;
+          var surveyQuestions = Object.keys(surveyResponse);
+          var index;
+          for (index = 0; index < surveyQuestions.length; index++) {
+            var question = surveyQuestions[index];
+            var preference = surveyResponse[question];
+            var comparison = charity[question];
+            if ((preference < 0.5 && comparison < 0.5) ||
+                (preference > 0.5 && comparison > 0.5)) score++;
+          }
+
+          return score;
+        }
+
         var getAll = function() {
             var defer = $q.defer();
 
