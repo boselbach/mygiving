@@ -204,20 +204,6 @@
 (function() {
     'use strict';
 
-    angular.module('mygiving.controller.portfolio', [
-        'mygiving.services.organisations'
-    ])
-    .controller('PortfolioCtrl', ['$scope', 'OrganisationsService', function($scope, OrganisationsService) {
-        OrganisationsService.getAll()
-        .then(function(data) {
-            $scope.portfolio = data;
-        });
-    }]);
-})();
-
-(function() {
-    'use strict';
-
     angular.module('mygiving.controller.organisation', [
         'mygiving.services.organisations',
         'mygiving.directive.card'
@@ -240,6 +226,22 @@
         $scope.remove = function() {
             OrganisationsService.update($scope.activeIndex, false);
         };
+    }]);
+})();
+
+(function() {
+    'use strict';
+
+    angular.module('mygiving.controller.portfolio', [
+        'mygiving.services.organisations'
+    ])
+    .controller('PortfolioCtrl', ['$scope', 'OrganisationsService', function($scope, OrganisationsService) {
+        OrganisationsService.getAll()
+        .then(function(data) {
+            $scope.portfolio = data;
+        });
+
+        $scope.recurring = ['Yearly', 'Monthly', 'Weekly', 'Once'];
     }]);
 })();
 

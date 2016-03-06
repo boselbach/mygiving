@@ -9,5 +9,7 @@
         .then(function(data) {
             $scope.portfolio = data;
         });
+
+        $scope.recurring = ['Yearly', 'Monthly', 'Weekly', 'Once'];
     }]);
 })();
