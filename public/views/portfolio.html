@@ -1,0 +1,42 @@
+<section class="portfolio">
+    <div class="summery-oganisations">
+        <header>
+            <h1>Portfolio</h1>
+        </header>
+        <ul class="recurring" >
+            <li ng-repeat="item in recurring" recurring>
+                <input type="radio" name="recurring" value="{{$index}}">
+                {{ item }}
+            </li>
+        </ul>
+        <ul class="cards" style="text-align: center;" >
+            <li ng-repeat="organisation in portfolio" ng-if="organisation.selected === true">
+                <figure>
+                    <img ng-src="assets/images/icons/{{organisation.logo}}" alt="">
+                </figure>
+                <p class="description">{{organisation.description}}</p>
+                <input type="number" min="0" step="10" placeholder="$ input amount" ng-blur="updateTotal($event)">
+            </li>
+        </ul>
+    </div>
+    <section class="summary-wrapper">
+        <div  class="summary">
+          <header>
+            <img class="group-banner" ng-src="assets/images/banner.png" alt="" src="assets/images/banner.png" style="
+                width:  100%; padding: 0px;">
+          </header>
+          <h3>Summary</h3>
+          <p style="text-align: center; padding: 50px; font-family: sans-serif; line-height: 120%;">{{ activeOrganisation.about_description }}</p>
+
+        <h3>Budget ${{ total }} {{ recurringShow }}</h3>
+        <ul class="org-list">
+            <li ng-repeat="organisation in portfolio" ng-if="organisation.selected === true">
+                {{ organisation.display_name }}
+            </li>
+        </ul>
+        <footer>
+            <p ng-show="!activeOrganisation.selected" class="add" ng-click="add()">Save and Send</p>
+        </footer>
+          </div>
+    </section>
+</section>

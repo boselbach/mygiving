@@ -1,0 +1,18 @@
+<section class="questionaire">
+    <header>
+        <h1>What do you care more about</h1>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    </header>
+
+    <ul class="questions">
+        <li class="question" ng-repeat="question in questions">
+            <h2>{{ question.content }}</h2>
+            <ul class="choices">
+                <li ng-repeat="choice in question.choices" choice>
+                    <input type="radio" name="{{ question.id }}" value="{{ choice.score }}">
+                    {{ choice.content }}
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>

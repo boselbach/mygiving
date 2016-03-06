@@ -1,0 +1,37 @@
+<section class="organisations">
+    <ul class="cards" style="text-align: center;">
+        <li ng-class="{'selected': organisation.selected === true, 'recommended': organisation.recommended === true}" ng-repeat="organisation in organisations" ng-click="setActice($index)" index="{{$index}}" card>
+            <figure>
+                <img ng-src="assets/images/icons/{{organisation.logo}}" alt="">
+            </figure>
+            <p class="description">{{organisation.card_description}}</p>
+        </li>
+    </ul>
+    <section class="selected-wrapper">
+        <div  class="selected">
+            <header>
+              <img class="group-banner" ng-src="assets/images/banner.png" alt="" src="assets/images/banner.png" style="
+                  width:  100%; padding: 0px;">
+                <figure style="text-align: center;">
+                    <img ng-src="assets/images/icons/{{ activeOrganisation.logo }}" alt="">
+                </figure>
+            </header>
+            <h3 style="font-size: 25px; text-align: center; font-family: sans-serif;">{{ activeOrganisation.display_name }}</h3>
+            <p style="text-align: center; padding: 50px; font-family: sans-serif; line-height: 120%;">{{ activeOrganisation.about_description }}</p>
+            <ul>
+              <li ng-show="activeOrganisation" style="text-align: center; padding: 10px; font-family: sans-serif;">Give Well: {{ activeOrganisation.give_well }}
+              </li>
+              <li ng-show="activeOrganisation" style="text-align: center; padding: 10px; font-family: sans-serif;">Charity Navigator: {{ activeOrganisation.charity_navigator}}
+              </li>
+              <li ng-show="activeOrganisation"  style="text-align: center; padding: 10px; font-family: sans-serif;">Impact Metric {{ activeOrganisation.impact_metric }}
+              </li>
+              <li ng-show="activeOrganisation" style="text-align: center; padding: 10px; font-family: sans-serif;">Impact Unit {{ activeOrganisation.impact_unit_price }}
+              </li>
+            </ul>
+            <footer>
+                <p ng-show="!activeOrganisation.selected" class="add" ng-click="add()">Add</p>
+                <p ng-show="activeOrganisation.selected" class="add" ng-click="remove()">Remove</p>
+            </footer>
+        </div>
+    </section>
+</section>
