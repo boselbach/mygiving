@@ -111,7 +111,8 @@ section.main {
 
 .questionaire header {
   text-align: center;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  margin-top: 20px; }
   .questionaire header h1 {
     color: #23bf91;
     font: 26px "Open Sans";
@@ -161,48 +162,90 @@ section.main {
         .questionaire ul.questions li.question ul.choices li input {
           display: none; }
 
-.portfolio header {
-  text-align: center;
-  margin-bottom: 20px; }
-  .portfolio header h1 {
-    color: #23bf91;
-    font: 26px "Open Sans";
-    margin-bottom: 40px; }
-
-.portfolio ul.recurring {
+.portfolio {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 30px; }
-  .portfolio ul.recurring li {
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
-    border: 2px solid #23bf91;
-    border-radius: 3px;
-    color: #23bf91;
-    cursor: pointer;
-    margin-right: 40px;
-    flex: 0 0 150px;
-    height: 50px;
-    font: 16px "Open Sans";
-    color: #23bf91;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center; }
-    .portfolio ul.recurring li.active {
+  flex-direction: row; }
+  .portfolio .summery-oganisations {
+    width: 50%; }
+    .portfolio .summery-oganisations header {
+      text-align: center;
+      margin-bottom: 20px; }
+      .portfolio .summery-oganisations header h1 {
+        color: #23bf91;
+        font: 26px "Open Sans";
+        margin-bottom: 40px; }
+    .portfolio .summery-oganisations ul.recurring {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px; }
+      .portfolio .summery-oganisations ul.recurring li {
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+        border: 2px solid #23bf91;
+        border-radius: 3px;
+        color: #23bf91;
+        cursor: pointer;
+        margin-right: 30px;
+        flex: 0 0 150px;
+        height: 50px;
+        font: 16px "Open Sans";
+        color: #23bf91;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center; }
+        .portfolio .summery-oganisations ul.recurring li input {
+          display: none; }
+        .portfolio .summery-oganisations ul.recurring li.active {
+          -webkit-transition: all 0.5s;
+          transition: all 0.5s;
+          background-color: #23bf91;
+          color: #fff; }
+    .portfolio .summery-oganisations .cards li input {
+      border: 2px solid #23bf91;
+      padding: 10px;
+      width: 66%;
+      font: 16px "Open Sans";
+      color: #23bf91; }
+  .portfolio .summary {
+    background-color: #fff;
+    position: fixed;
+    height: 100%;
+    width: 45%; }
+    .portfolio .summary h3 {
+      font-size: 25px;
+      text-align: center;
+      font-family: sans-serif; }
+    .portfolio .summary .org-list {
+      text-align: center;
+      margin-top: 30px; }
+      .portfolio .summary .org-list li {
+        font: 16px "Open Sans";
+        color: #23bf91; }
+    .portfolio .summary footer .add {
       -webkit-transition: all 0.5s;
       transition: all 0.5s;
-      background-color: #23bf91;
-      color: #fff; }
-
-.portfolio .cards li input {
-  border: 2px solid #23bf91;
-  padding: 10px;
-  width: 66%;
-  font: 16px "Open Sans";
-  color: #23bf91; }
+      background-color: #fff;
+      border: 1px solid #23bf91;
+      border-radius: 3px;
+      margin-bottom: 20px;
+      margin-left: 30px;
+      cursor: pointer;
+      color: #23bf91;
+      text-align: center;
+      font: 20px "Sans Serif";
+      font-weight: 100;
+      position: absolute;
+      padding: 10px 0;
+      width: 92%;
+      bottom: 10px; }
+      .portfolio .summary footer .add:hover {
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+        background-color: #23bf91;
+        color: #fff; }
 
 .cards {
   padding: 0;
