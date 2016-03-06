@@ -2,10 +2,9 @@
   "name": "mygiving",
   "version": "1.0.0",
   "description": "",
-  "main": "public/index.html",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "web public/index.html"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Bo Skov Selbach",
   "license": "ISC",
