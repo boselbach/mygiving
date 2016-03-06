@@ -1,0 +1,21 @@
+{
+  "name": "mygiving",
+  "main": "index.js",
+  "version": "0.1.0",
+  "directory": "public/components",
+  "authors": [
+    "Bo Skov Selbach <boselbach@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.1",
+    "angular-route": "~1.5.0"
+  }
+}

@@ -1,0 +1,10 @@
+<section class="portfolio">
+    <ul class="cards">
+        <li ng-repeat="organisation in portfolio" ng-if="organisation.selected === true">
+            <figure>
+                <img ng-src="assets/images/icons/{{organisation.image}}" alt="">
+            </figure>
+            <p class="description">{{organisation.description}}</p>
+        </li>
+    </ul>
+</section>

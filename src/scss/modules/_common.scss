@@ -1,0 +1,48 @@
+html, body {
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+section.main {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    margin: 0 auto;
+
+    nav.main {
+        background-color: #192923;
+        flex: 0 0 192px;
+
+        figure {
+            text-align: center;
+            margin: 30px 0 80px 0;
+        }
+
+        ul {
+            li {
+                color: white;
+                text-decoration: none;
+                text-align: center;
+                margin-bottom: 20px;
+
+                a {
+                    color: #fff;
+                    font: 15px "Open Sans";
+
+                    &:hover {
+                        color: #23bf91;
+                    }
+                }
+            }
+        }
+    }
+
+    article.main {
+        background-color: #ebebeb;
+        padding: 20px 0 20px 20px;
+        width: 100%;
+    }
+}
