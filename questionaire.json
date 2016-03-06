@@ -1,0 +1,56 @@
+[
+    {
+        "id": "impact_overhead",
+        "content": "What is most important for you",
+        "choices": [
+            {
+                "content": "Maximum impact",
+                "score": 0
+            },
+            {
+                "content": "Minimum impact",
+                "score": 1
+            },
+            {
+                "content": "Both/Don't know",
+                "score": 0.5
+            }
+        ]
+    },
+    {
+        "id": "people_planet",
+        "content": "What do you prefer to help?",
+        "choices": [
+            {
+                "content": "People",
+                "score": 0
+            },
+            {
+                "content": "Planet",
+                "score": 1
+            },
+            {
+                "content": "Both/Don't know",
+                "score": 0.5
+            }
+        ]
+    },
+    {
+        "id": "stories_metrics",
+        "content": "What appeals the most to you?",
+        "choices": [
+            {
+                "content": "Stories",
+                "score": 0
+            },
+            {
+                "content": "Metrics",
+                "score": 1
+            },
+            {
+                "content": "Both/Don't know",
+                "score": 0.5
+            }
+        ]
+    }
+]

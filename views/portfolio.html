@@ -1,10 +1,27 @@
 <section class="portfolio">
-    <ul class="cards">
+    <ul class="cards" style="text-align: center;" >
         <li ng-repeat="organisation in portfolio" ng-if="organisation.selected === true">
             <figure>
-                <img ng-src="assets/images/icons/{{organisation.image}}" alt="">
+                <img ng-src="assets/images/icons/{{organisation.header_image}}" alt="">
             </figure>
             <p class="description">{{organisation.description}}</p>
+            <input type="number" min="0" step="10" placeholder="Input amount">$
         </li>
     </ul>
+    <section class="summary-wrapper">
+        <div  class="summary">
+          <header>
+            <img class="group-banner" ng-src="assets/images/banner.png" alt="" src="assets/images/banner.png" style="
+                width:  100%; padding: 0px;">
+          </header>
+          <h3 style="font-size: 25px; text-align: center; font-family: sans-serif;">Summary</h3>
+          <p style="text-align: center; padding: 50px; font-family: sans-serif; line-height: 120%;">{{ activeOrganisation.about_description }}</p>
+        <ul>
+          HEJ
+        </ul>
+        <footer>
+            <p ng-show="!activeOrganisation.selected" class="add" ng-click="add()">Save and Send</p>
+        </footer>
+          </div>
+    </section>
 </section>

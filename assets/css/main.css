@@ -41,7 +41,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-html, body {
+html,
+body {
   height: 100%; }
 
 a {
@@ -57,7 +58,7 @@ section.main {
     flex: 0 0 192px; }
     section.main nav.main figure {
       text-align: center;
-      margin: 30px 0 80px 0; }
+      margin: 30px 0 80px; }
     section.main nav.main ul li {
       color: white;
       text-decoration: none;
@@ -70,8 +71,8 @@ section.main {
           color: #23bf91; }
   section.main article.main {
     background-color: #ebebeb;
-    padding: 20px 0 20px 20px;
-    width: 100%; }
+    width: 100%;
+    height: 100%; }
 
 .organisations {
   display: flex; }
@@ -82,23 +83,21 @@ section.main {
     flex: 1; }
     .organisations .selected-wrapper .selected {
       background-color: #fff;
-      margin: 10px 50px 0 0;
       position: fixed;
-      margin-left: 30px;
-      padding: 20px;
-      height: 70%;
-      width: 35%; }
+      height: 100%;
+      width: 45%; }
       .organisations .selected-wrapper .selected footer .add {
         -webkit-transition: all 0.5s;
         transition: all 0.5s;
         background-color: #fff;
         border: 1px solid #23bf91;
         border-radius: 3px;
-        bottom: 0;
+        margin-bottom: 20px;
+        margin-left: 30px;
         cursor: pointer;
         color: #23bf91;
         text-align: center;
-        font: 20px "Open Sans";
+        font: 20px "Sans Serif";
         font-weight: 100;
         position: absolute;
         padding: 10px 0;
@@ -109,6 +108,58 @@ section.main {
           transition: all 0.5s;
           background-color: #23bf91;
           color: #fff; }
+
+.questionaire header {
+  text-align: center;
+  margin-bottom: 20px; }
+  .questionaire header h1 {
+    color: #23bf91;
+    font: 26px "Open Sans";
+    margin-bottom: 40px; }
+  .questionaire header p {
+    max-width: 500px;
+    margin: 0 auto;
+    font: 13px "Open Sans"; }
+
+.questionaire ul.questions {
+  text-align: center;
+  display: flex;
+  flex-direction: column; }
+  .questionaire ul.questions li.question {
+    display: inline-block; }
+    .questionaire ul.questions li.question h2 {
+      color: #23bf91;
+      font: 22px "Open Sans";
+      margin-bottom: 20px; }
+    .questionaire ul.questions li.question ul.choices {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px; }
+      .questionaire ul.questions li.question ul.choices li {
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+        border: 2px solid #23bf91;
+        border-radius: 3px;
+        color: #23bf91;
+        cursor: pointer;
+        margin-right: 40px;
+        flex: 0 0 150px;
+        height: 150px;
+        font: 16px "Open Sans";
+        color: #23bf91;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center; }
+        .questionaire ul.questions li.question ul.choices li.active {
+          -webkit-transition: all 0.5s;
+          transition: all 0.5s;
+          background-color: #23bf91;
+          color: #fff; }
+        .questionaire ul.questions li.question ul.choices li input {
+          display: none; }
 
 .cards {
   padding: 0;
@@ -122,7 +173,9 @@ section.main {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  margin: 36px;
+  margin-right: -56px; }
   .cards li {
     -webkit-transition: all 0.5s;
     transition: all 0.5;
@@ -136,7 +189,9 @@ section.main {
       text-align: center; }
     .cards li p.description {
       color: #000;
-      font: 12px "Open Sans"; }
+      font: 12px "Open Sans";
+      text-align: center;
+      padding: 10px; }
     .cards li.selected:before {
       content: "Selected";
       text-align: center;
@@ -153,8 +208,9 @@ section.main {
       font-family: "Open Sans";
       line-height: 35px;
       text-indent: 10px;
-      font-size: 12px; }
-    .cards li.recommended:before {
+      font-size: 12px;
+      z-index: 10; }
+    .cards li.recommended:after {
       content: "Recommended";
       text-align: center;
       position: absolute;
