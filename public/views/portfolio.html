@@ -1,16 +1,24 @@
 <section class="portfolio">
+    <header>
+        <h1>Portfolio</h1>
+    </header>
+    <ul class="recurring">
+        <li ng-repeat="item in recurring">
+            {{ item }}
+        </li>
+    </ul>
     <ul class="cards" style="text-align: center;" >
         <li ng-repeat="organisation in portfolio" ng-if="organisation.selected === true">
             <figure>
-                <img ng-src="assets/images/icons/{{organisation.header_image}}" alt="">
+                <img ng-src="assets/images/icons/{{organisation.logo}}" alt="">
             </figure>
             <p class="description">{{organisation.description}}</p>
-            <input type="number" min="0" step="10" placeholder="Input amount">$
+            <input type="number" min="0" step="10" placeholder="$ input amount">
         </li>
     </ul>
     <section class="summery-wrapper">
         <div  class="summery">
-            Static
+
         </div>
     </section>
 </section>

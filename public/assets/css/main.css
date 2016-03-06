@@ -161,6 +161,49 @@ section.main {
         .questionaire ul.questions li.question ul.choices li input {
           display: none; }
 
+.portfolio header {
+  text-align: center;
+  margin-bottom: 20px; }
+  .portfolio header h1 {
+    color: #23bf91;
+    font: 26px "Open Sans";
+    margin-bottom: 40px; }
+
+.portfolio ul.recurring {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px; }
+  .portfolio ul.recurring li {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    border: 2px solid #23bf91;
+    border-radius: 3px;
+    color: #23bf91;
+    cursor: pointer;
+    margin-right: 40px;
+    flex: 0 0 150px;
+    height: 50px;
+    font: 16px "Open Sans";
+    color: #23bf91;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center; }
+    .portfolio ul.recurring li.active {
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+      background-color: #23bf91;
+      color: #fff; }
+
+.portfolio .cards li input {
+  border: 2px solid #23bf91;
+  padding: 10px;
+  width: 66%;
+  font: 16px "Open Sans";
+  color: #23bf91; }
+
 .cards {
   padding: 0;
   margin: 0;
