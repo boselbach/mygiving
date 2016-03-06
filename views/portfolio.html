@@ -1,4 +1,5 @@
 <section class="portfolio">
+<<<<<<< HEAD
     <div class="summery-oganisations">
         <header>
             <h1>Portfolio</h1>
@@ -19,12 +20,24 @@
             </li>
         </ul>
     </div>
+=======
+    <ul class="cards" style="text-align: center;" >
+        <li ng-repeat="organisation in portfolio" ng-if="organisation.selected === true">
+            <figure>
+                <img ng-src="assets/images/icons/{{organisation.header_image}}" alt="">
+            </figure>
+            <p class="description">{{organisation.description}}</p>
+            <input type="number" min="0" step="10" placeholder="Input amount">$
+        </li>
+    </ul>
+>>>>>>> 6956ab3cd34cac7c9d66673c7125e94bbdf84b32
     <section class="summary-wrapper">
         <div  class="summary">
           <header>
             <img class="group-banner" ng-src="assets/images/banner.png" alt="" src="assets/images/banner.png" style="
                 width:  100%; padding: 0px;">
           </header>
+<<<<<<< HEAD
           <h3>Summary</h3>
           <p style="text-align: center; padding: 50px; font-family: sans-serif; line-height: 120%;">{{ activeOrganisation.about_description }}</p>
 
@@ -33,6 +46,12 @@
             <li ng-repeat="organisation in portfolio" ng-if="organisation.selected === true">
                 {{ organisation.display_name }}
             </li>
+=======
+          <h3 style="font-size: 25px; text-align: center; font-family: sans-serif;">Summary</h3>
+          <p style="text-align: center; padding: 50px; font-family: sans-serif; line-height: 120%;">{{ activeOrganisation.about_description }}</p>
+        <ul>
+          HEJ
+>>>>>>> 6956ab3cd34cac7c9d66673c7125e94bbdf84b32
         </ul>
         <footer>
             <p ng-show="!activeOrganisation.selected" class="add" ng-click="add()">Save and Send</p>

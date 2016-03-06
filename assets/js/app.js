@@ -243,11 +243,14 @@
         });
 
         $scope.recurring = ['Yearly', 'Monthly', 'Weekly', 'Once'];
+<<<<<<< HEAD
         $scope.total = 0;
 
         $scope.updateTotal = function($event) {
             $scope.total += parseInt(angular.element($event.target).val(), 10); 
         };
+=======
+>>>>>>> 6956ab3cd34cac7c9d66673c7125e94bbdf84b32
     }]);
 })();
 
@@ -288,12 +291,18 @@
 (function() {
     'use strict';
 
+<<<<<<< HEAD
     angular.module('mygiving.portfolio.recurring', [])
     .directive('recurring', [function() {
+=======
+    angular.module('mygiving.questionaire.choice', [])
+    .directive('choice', [function() {
+>>>>>>> 6956ab3cd34cac7c9d66673c7125e94bbdf84b32
         return {
             restrict: 'A',
             link: function(scope, element, attrs) {
                 element.on('click', function() {
+<<<<<<< HEAD
                     element.closest('.recurring').find('li').removeClass('active');
                     element.find('input').prop("checked", true);
                     element.addClass('active');
@@ -317,6 +326,12 @@
                     element.find('input').prop("checked", true);
                     element.addClass('active');
 
+=======
+                    element.closest('.choices').find('li').removeClass('active');
+                    element.find('input').prop("checked", true);
+                    element.addClass('active');
+
+>>>>>>> 6956ab3cd34cac7c9d66673c7125e94bbdf84b32
                     if (!angular.element('.choices:not(:has(:radio:checked))').length) {
                         scope.next();
                     }

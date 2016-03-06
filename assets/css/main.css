@@ -111,8 +111,12 @@ section.main {
 
 .questionaire header {
   text-align: center;
+<<<<<<< HEAD
   margin-bottom: 20px;
   margin-top: 20px; }
+=======
+  margin-bottom: 20px; }
+>>>>>>> 6956ab3cd34cac7c9d66673c7125e94bbdf84b32
   .questionaire header h1 {
     color: #23bf91;
     font: 26px "Open Sans";
@@ -162,6 +166,7 @@ section.main {
         .questionaire ul.questions li.question ul.choices li input {
           display: none; }
 
+<<<<<<< HEAD
 .portfolio {
   display: flex;
   flex-direction: row; }
@@ -247,6 +252,8 @@ section.main {
         background-color: #23bf91;
         color: #fff; }
 
+=======
+>>>>>>> 6956ab3cd34cac7c9d66673c7125e94bbdf84b32
 .cards {
   padding: 0;
   margin: 0;
